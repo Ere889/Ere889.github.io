@@ -1,10 +1,182 @@
 <!DOCTYPE html>
-<html>
+<html lang="sk">
 <head>
   <meta charset="UTF-8">
-  <title>Moja stránka</title>
+  <title>Ere</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 20px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 650px; /* 🔥 zväčšené z 420px na 650px */
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 18px;
+      padding: 32px 28px 36px; /* trochu väčšie vnútorné okraje */
+      box-shadow: 0 20px 40px rgba(0,0,0,0.45);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 22px; /* väčší rozostup */
+      margin-bottom: 28px;
+    }
+
+    .avatar {
+      width: 110px; /* väčšia profilovka */
+      height: 110px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #38bdf8;
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.25);
+      flex-shrink: 0;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .name {
+      font-size: 1.8rem; /* väčšie meno */
+      font-weight: 600;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #9ca3af;
+      margin-top: 6px;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      text-decoration: none;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: #111827;
+      color: #e5e7eb;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 1rem;
+      font-weight: 500;
+      transition: all 0.15s ease;
+    }
+
+    .link-btn:hover {
+      background: #1f2937;
+      border-color: #38bdf8;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(15,23,42,0.7);
+    }
+
+    .icon {
+      width: 26px; /* väčšie ikonky */
+      height: 26px;
+      flex-shrink: 0;
+      opacity: 0.9;
+    }
+
+    .footer {
+      margin-top: 22px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    /* RESPONSIVE – na mobile ostane úzke */
+    @media (max-width: 480px) {
+      .card {
+        max-width: 90%;
+        padding: 24px 18px;
+      }
+      .header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .avatar {
+        width: 100px;
+        height: 100px;
+      }
+      .name {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Vitaj na mojej stránke!</h1>
+  <main class="card">
+
+    <div class="header">
+      <div class="avatar">
+        <img src="pictures/prof.jpg" alt="Profilová fotka">
+      </div>
+
+      <div>
+        <div class="name">Ere</div>
+        <div class="subtitle">Môj malý kútik internetu</div>
+      </div>
+    </div>
+
+    <section class="links">
+
+      <a class="link-btn" href="https://instagram.com/_solomej_" target="_blank">
+        <img class="icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="">
+        Instagram
+      </a>
+
+      <a class="link-btn" href="https://snapchat.com/@btw_erik/" target="_blank">
+        <img class="icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/snapchat.svg" alt="">
+        Snapchat
+      </a>
+
+      <a class="link-btn" href="https://www.csfd.sk/uzivatel/921021-ere69/hodnotenia/" target="_blank">
+        <img class="icon" src="pictures/csfd.svg" alt="">
+        ČSFD
+      </a>
+
+      <a class="link-btn" href="mailto:ere16@duck.com">
+        <img class="icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/maildotru.svg" alt="">
+        Kontakt e‑mailom
+      </a>
+
+    </section>
+
+    <div class="footer">
+      © <span id="year"></span> Ere
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
